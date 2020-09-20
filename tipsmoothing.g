@@ -1,0 +1,1 @@
+G1 E-80 F3000			 ; retract out of extruder

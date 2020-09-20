@@ -25,7 +25,7 @@ M569 P1 S0                                  				; Drive 1 goes forwards
 M569 P2 S0                                  				; Drive 2 goes forwards
 M569 P3 S0                                  				; Drive 3 goes forwards
 M569 P4 S0                                          		; Drive 4 goes backwards  V = filament drive axis
-M569 P5 S1                                          		; Drive 5 goes forwards   W = tumbler/idler axis
+M569 P5 S0                                          		; Drive 5 goes forwards   W = tumbler/idler axis
 M569 P6 S1                                          		; Drive 6 goes forwards   U = Selector Axis
 M584 X0 Y1 Z2 E3 V4 W5 U6                           		; Apply custom drive mapping
 M350 X16 Y16 Z16 E16 U16 V16 W16 I1                     			; Configure microstepping with interpolation
@@ -47,9 +47,9 @@ M208 Z0 U0 V-1000 W0 S1                                  	; Set minimum Z, U, V,
 M574 X2 S1 P"xstop"											; configure active-high endstop for high end on X via pin xstop
 M574 Y2 S1 P"ystop"                                 		; configure active-high endstop for high end on Y via pin ystop
 M574 Z2 S1 P"zstop"                                 		; configure active-high endstop for high end on Z via pin zstop
-M574 U1 S3 ;P"ustop"				   							; Set additional axes as sensorless endstops
-M574 V1 S3 ;P"vstop"				   							; Set additional axes as sensorless endstops 
-M574 W1 S3 ;P"wstop"				   							; Set additional axes as sensorless endstops
+M574 U1 S3 ;P"duex.e3stop"				   					; Set additional axes as sensorless endstops
+M574 V1 S3 ;P"e1stop"				   						; Set additional axes as sensorless endstops 
+M574 W1 S3 ;P"duex.e2stop"				   					; Set additional axes as sensorless endstops
 
 ; Z-Probe
 ;M558 P8 R0.2 F1200 C"zprobe.in+zprobe.mod"

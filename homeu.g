@@ -1,3 +1,4 @@
+; Homing the U axis script
 M913 U50              		 ; reduce motor current to 50% to prevent bad noises
 M915 U S5 F0 R0			     ; set stall parameters
 G91                   		 ; use relative positioning

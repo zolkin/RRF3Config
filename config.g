@@ -16,7 +16,7 @@ M550 P"Anycubic Predator"                     				; Set machine name
 M551 P""                         							; Set password
 M552 P0.0.0.0 S1  	                        				; Enable network and acquire dynamic address via DHCP
 M586 P0 S1                                  				; Enable HTTP
-M586 P1 S0                                  				; Disable FTP
+M586 P1 S1                                  				; Disable FTP
 M586 P2 S0                                  				; Disable Telnet
 
 ; Drives
@@ -30,10 +30,10 @@ M569 P6 S1                                          		; Drive 6 goes forwards   
 M584 X0 Y1 Z2 E3 V4 W5 U6                           		; Apply custom drive mapping
 M350 X16 Y16 Z16 E16 U16 V16 W16 I1                     			; Configure microstepping with interpolation
 M92 X80.00 Y80.00 Z80.00 E380.45 U400.0 V145.0 W26.0             	; Set steps per mm
-M566 X1000 Y1000 Z1000 E1000 U400 V2000 W2000    	        		; Set maximum instantaneous speed changes (mm/min)
+M566 X1000 Y1000 Z1000 E1000 U400 V1000 W2000    	        		; Set maximum instantaneous speed changes (mm/min)
 M203 X12000.0 Y12000.0 Z12000.0 E10000.0 U5000.0 V10000.0 W20000.0	; Set maximum speeds (mm/min)
-M201 X3000.00 Y3000.00 Z3000.00 E3000.00 U500.0 V2000.0 W2000.0   	; Set accelerations (mm/s^2)
-M906 X1000.0 Y1000.0 Z1000.0 E1000.0 U700.0 V1000.0 W1000.0 I40.0 			; Set motor currents (mA) and motor idle factor in per cent
+M201 X3000.00 Y3000.00 Z3000.00 E3000.00 U500.0 V3000.0 W2000.0   	; Set accelerations (mm/s^2)
+M906 X1000.0 Y1000.0 Z1000.0 E1000.0 U700.0 V1000.0 W1000.0 I40.0 	; Set motor currents (mA) and motor idle factor in per cent
 M84 S30                                     						; Set idle timeout
 M917 U30 W50 V1
 
@@ -83,7 +83,7 @@ M106 P1 S1 I0 F500 H1 T45                   				; Set fan 1 value, PWM signal in
 ;G10 P0 X0 Y0 Z0                             				; Set tool 0 axis offsets
 ;G10 P0 R0 S0                                				; Set initial tool 0 active and standby temperatures to 0C
 
-;Tools
+; Tools
 M563 P0 D0 H1                                      ; Define tool 0
 G10 P0 X0 Y0 Z0                                    ; Set tool 0 axis offsets
 G10 P0 R0 S0                                       ; Set initial tool 0 active and standby temperatures to 0C
@@ -108,7 +108,7 @@ G10 P4 R0 S0 					   				   ; Set initial tool 4 active and standby temperatures
 
 ; Custom settings are not configured
 M572 D0 S0.1												; Pressure Advance
-M591 D0 P2 C3 S1											; Activate filament sensor
+;M591 D0 P2 C"e0stop" S1										; Activate filament sensor
 M404 N1.75 													; Set for print monitor
 M592 D0 A0.07772 B-0.00029 									; Nonlinear extrusion. Set parameters for extruder drive 0
 

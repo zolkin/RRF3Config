@@ -1,7 +1,7 @@
-G1 E-150 F3000			 ; retract out of extruder
-M574 V2 S1 P"!e0stop"
-while sensors.endstops[4].triggered
-	G1 E-10 F3000
-	echo "E-10"
-M574 V2 S1 P"nil"
-echo "E sensor not triggered!"
+M574 V2 S1 P"!e0stop"	 			; setting V endstop to check it's status
+while iterations < 25 ; retracting until V endstop no longer triggered
+	if sensors.endstops[4].triggered
+		break
+	G1 E-2 F3000
+G1 E-2 F3000						; retracting some more just in case
+M574 V2 S1 P"nil"					; disabling V endstop

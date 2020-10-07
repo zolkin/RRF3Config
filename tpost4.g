@@ -1,6 +1,13 @@
 ; called after tool 4 has been selected
+;
 echo "tool 4 selected, feeding filament"
-M913 U100 V100 W100
-G1 W59 F10000
-;M116 P4
-M98 P"tpostmaster.g"
+G1 W59 F10000           ; move W to engage filament
+;M116 P4                ; wait for nozzle heat up
+M98 P"tpostmaster.g"    ; run postmaster.g
+
+M28 "/sys/last_tool.g"  ; writing last selected tool backout to the file to survive printer restart
+T4 P0
+M98 P"tfree4.g" 
+T-1 P0
+G28 U
+M29

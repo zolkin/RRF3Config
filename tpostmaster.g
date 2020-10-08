@@ -13,6 +13,8 @@ if sensors.endstops[4].triggered
 	G90									; absolute moves
 	G92 E0 V0							; force E, V to 0mm
 	G1 E5 V5 F300						; feed filament into extruder with both V and E axis
+else
+    M291 P"Loading failure detected" S3
 
 M574 V2 S1 P"nil"						; clear V endstop
 

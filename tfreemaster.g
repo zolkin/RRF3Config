@@ -9,11 +9,11 @@ M574 V1 S1 P"!e1stop"		; set V axis min endstop to switched high temporarily
 G92 V0						; force V axis position to 0mm
 G1 V-900 H1 F5000			; retract filament till sensor switches off
 G92 V0						; force V axis position to 0mm
-G1 V-22 F3000				; retract to position clear of selector
+G1 V-25 F3000				; retract to position clear of selector
 M400                        ; waiting for all moves to complete
 
 if !sensors.endstops[4].triggered
-    M291 P"Unloading failure detected" S2
+    M291 P"Unloading failure detected" S3
     
 M574 V1 S1 P"nil"			; disable V axis min endstop
 

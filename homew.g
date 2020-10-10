@@ -1,5 +1,5 @@
 M913 W70              		 ; reduce motor current to 70% to prevent bad noises
-M915 W S3 H200 F0 R1		 ; set stall parameters
+M915 W S2 H200 F0 R1		 ; set stall parameters
 M18 V
 G91                   		 ; use relative positioning
 while iterations < 3		 ; retry up to 3 times if needed

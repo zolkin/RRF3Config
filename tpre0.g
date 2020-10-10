@@ -1,5 +1,5 @@
 ; called before tool 0 is selected
-M98 P"/sys/last_tool.g"
+M98 P"/sys/free_last_tool.g"
 
 echo "Selecting tool 0"
 G90				     	    ; absolute moves 

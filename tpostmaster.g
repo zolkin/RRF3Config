@@ -1,3 +1,5 @@
+M116 P2                					; wait for nozzle heat up
+
 G91										; relative moves
 
 M913 V50            					; reduce motor current to 30% to prevent grinding
@@ -22,12 +24,12 @@ M581 P"!e0stop" T2 C0					; activate trigger 2 on filament not present
 M582 T2			 						; check filament sensor to confirm loading successful
 M581 P"nil" S-1 T2 C0					; deactivate trigger 2
 
-M591 D0 P2 C"e1stop" S1 				; activate filament sensor on mmu2 unit
+M591 D0 P2 C"!e1stop" S1 				; activate filament sensor on mmu2 unit
 
 G1 W78 F10000							; move W to safe position
 G91										; relative moves
-G1 E90 F5000 							; drive extruder for 90mm 
-G1 E10 F300								; slowly load the hotend
+G1 E143 F5000 							; drive extruder for 143mm (taken from previous marlin config)
+G1 E10 F500								; slowly load the hotend
 
 G90										; absolute moves
 M913 U30 W50 V30    					; motor currents back to standstill

@@ -11,7 +11,9 @@ if !sensors.endstops[4].triggered
     M400                        ; waiting for all moves to complete
 
 if !sensors.endstops[4].triggered
-    M291 P"Unloading failure detected" S3
+	M25
+	M574 V1 S1 P"nil"			; disable V axis min endstop
+	abort "Unloading failure detected"
     
 M574 V1 S1 P"nil"			    ; disable V axis min endstop
 
@@ -20,5 +22,5 @@ G90				 			    ; absolute moves
 G1 W78 F10000				    ; move W to safe position
 M400`
 
-M28 "/sys/free_last_tool.g"     ; clearing last selected tool backout from the file (needed for machine reboot)
+M28 "/sys/last_tool.g"     		; clearing last selected tool from the file (needed for machine reboot)
 M29

@@ -16,7 +16,9 @@ if sensors.endstops[4].triggered
 	G92 E0 V0							; force E, V to 0mm
 	G1 E5 V5 F300						; feed filament into extruder with both V and E axis
 else
-    M291 P"Loading failure detected" S3
+	M25
+	M574 V2 S1 P"nil"				    ; clear V endstop
+    abort "Loading failure detected"
 
 M574 V2 S1 P"nil"						; clear V endstop
 
@@ -28,8 +30,9 @@ M591 D0 P2 C"!e1stop" S1 				; activate filament sensor on mmu2 unit
 
 G1 W78 F10000							; move W to safe position
 G91										; relative moves
-G1 E143 F5000 							; drive extruder for 143mm (taken from previous marlin config)
-G1 E10 F500								; slowly load the hotend
+G1 E100 F5000 							; drive extruder for 100mm
+G1 E40 F1500							; slow down a bit
+G1 E18 F500								; slowly load the hotend
 
 G90										; absolute moves
 M913 U30 W50 V30    					; motor currents back to standstill

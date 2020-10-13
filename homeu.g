@@ -13,4 +13,3 @@ if !sensors.endstops[4].triggered   ; only move selector if there is no filament
 else
     echo "Filament present, not moving selector!"
 M574 V2 S1 P"nil"					; disabling V endstop
-;M591 D0 P2 C"e1stop" S1 			; activate filament sensor on mmu2 unit

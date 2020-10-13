@@ -1,4 +1,6 @@
 ; tfree0.g
+M98 P"tfreehome.g"
+
 echo "disabling tool 0"
 M913 U100 V100 W100
 M98 P"unload_fom_extruder.g"

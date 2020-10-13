@@ -1,5 +1,5 @@
 ; called before tool 2 is selected
-M98 P"/sys/free_last_tool.g"
+M98 P"tprehome.g"
 
 echo "Selecting tool 2"
 G90							; absolute moves

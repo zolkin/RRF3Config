@@ -29,7 +29,7 @@ M569 P5 S0                                          		; Drive 5 goes forwards   
 M569 P6 S1                                          		; Drive 6 goes forwards   U = Selector Axis
 M584 X0 Y1 Z2 E3 V4 W5 U6                           		; Apply custom drive mapping
 M350 X16 Y16 Z16 E16 U16 V16 W16 I1                     			; Configure microstepping with interpolation
-M92 X80.00 Y80.00 Z80.00 E400.5 U400.0 V145.0 W26.0             	; Set steps per mm
+M92 X80.00 Y80.00 Z80.00 E400.5 U415.0 V145.0 W26.0             	; Set steps per mm
 M566 X1000 Y1000 Z1000 E1000 U400 V1000 W2000    	        		; Set maximum instantaneous speed changes (mm/min)
 M203 X12000.0 Y12000.0 Z12000.0 E10000.0 U5000.0 V10000.0 W20000.0	; Set maximum speeds (mm/min)
 M201 X3000.00 Y3000.00 Z3000.00 E3000.00 U500.0 V3000.0 W2000.0   	; Set accelerations (mm/s^2)
@@ -54,7 +54,7 @@ M574 W1 S3 ;P"duex.e2stop"				   					; Set additional axes as sensorless endsto
 ; Z-Probe
 ;M558 P8 R0.2 F1200 C"zprobe.in+zprobe.mod"
 M558 P8 H30 F1000 T12000 R0.2 S0.02 A5 C"zprobe.in+zprobe.mod"	; Set Z probe type to switch and the dive height + speeds
-G31 P100 X0 Y0 Z0                    						; Set Z probe trigger value, offset and trigger height
+G31 P100 X0 Y0 Z0.0                    							; Set Z probe trigger value, offset and trigger height
 M557 R175 S16                               					; Define mesh grid
 G29 S1															; Load the heightmap
 
@@ -108,10 +108,11 @@ G10 P4 R0 S0 					   				   ; Set initial tool 4 active and standby temperatures
 
 ; Custom settings are not configured
 M572 D0 S0.1												; Pressure Advance
-;M591 D0 P2 C"e0stop" S1										; Activate filament sensor
+;M591 D0 P2 C"e0stop" S1									; Activate filament sensor
 M404 N1.75 													; Set for print monitor
 M592 D0 A0.07772 B-0.00029 									; Nonlinear extrusion. Set parameters for extruder drive 0
 
 ; Miscellaneous
 M501                                               			; Load saved parameters from non-volatile memory
 M552 S1														; Turn wifi on
+M98 P"last_tool.g"											; select previously selected tool

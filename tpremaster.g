@@ -5,7 +5,9 @@ G92 V0					; force V to 0mm
 G1 V20 F3000			; feed a bit more to reliably switch sensor and reach tube
 M400
 if !sensors.endstops[4].triggered
-    M291 P"Loading failure detected" S3
+	M25
+	M574 V2 S1 P"nil"
+    abort "Loading failure detected"
 M574 V2 S1 P"nil"
 
 M591 D0 P2 C"nil" S0  	; deactivate filament sensor

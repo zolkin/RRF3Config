@@ -10,8 +10,7 @@ while iterations < 60 				; retracting until V endstop no longer triggered
 	G1 E-5 F3000					; small step at a time
 
 if sensors.endstops[4].triggered	; unloading from extruder failed
-	M25								; pause print
-	M574 V2 S1 P"nil"				; disabling V endstop
+	M98 P"preabort.g"
 	abort "Unloading from extruder failed"
 
 M574 V2 S1 P"nil"					; disabling V endstop

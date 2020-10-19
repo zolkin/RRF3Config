@@ -1,5 +1,5 @@
 ; Homing the U axis script
-M591 D0 P2 C"nil" S1 				    ; deactivate filament sensor on mmu2 unit
+M591 D0 P2 C"nil" S1 				; deactivate filament sensor on mmu2 unit
 M574 V2 S1 P"e1stop"	 			; setting V endstop to check it's status
 if !sensors.endstops[4].triggered   ; only move selector if there is no filament present
     M913 U50              		    ; reduce motor current to 50% to prevent bad noises

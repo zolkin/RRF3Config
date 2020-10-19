@@ -9,8 +9,8 @@ G1 E-30 F3000
 
 ; cooling
 while iterations < 4
-	G1 E5 F250
-	G1 E-5 F250
+    G1 E5 F250
+    G1 E-5 F250
 
 ;free tool
 T-1

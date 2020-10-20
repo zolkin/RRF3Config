@@ -9,10 +9,7 @@ while iterations < 60 				; retracting until V endstop no longer triggered
         break
     G1 E-5 F3000					; small step at a time
 
-if sensors.endstops[4].triggered	; unloading from extruder failed
-    M98 P"preabort.g"
-    M291 S3 R"Unloading from extruder failed" P"Filament stil present in the extruder"
+if !sensors.endstops[4].triggered	; unloading from extruder failed
+    G1 E-5 F3000					    ; retracting a bit more just in case
 
 M574 V2 S1 P"nil"					; disabling V endstop
-
-G1 E-5 F3000					    ; retracting a bit more just in case

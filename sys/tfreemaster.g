@@ -11,8 +11,7 @@ if !sensors.endstops[4].triggered
     M400                        ; waiting for all moves to complete
 
 if !sensors.endstops[4].triggered
-    M25
-    M574 V1 S1 P"nil"			; disable V axis min endstop
+    M98 P"preabort.g"
     M291 S3 R "Unloading failure detected" P"Filament still present in the selector!"
 else
     G90				 			; absolute moves

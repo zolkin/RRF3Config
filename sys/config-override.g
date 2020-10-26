@@ -1,11 +1,11 @@
-; config-override.g file generated in response to M500 at 2020-10-17 14:53
+; config-override.g file generated in response to M500 at 2020-10-23 13:53
 ; This is a system-generated file - do not edit
 ; Delta parameters
-M665 L440.490:440.490:440.490 R221.179 H411.368 B185.0 X-0.468 Y-0.188 Z0.000
-M666 X1.017 Y-0.995 Z-0.021 A0.07 B-0.37
+M665 L440.490:440.490:440.490 R221.209 H411.283 B185.0 X-0.491 Y-0.223 Z0.000
+M666 X0.903 Y-1.027 Z0.124 A0.12 B-0.33
 ; Heater model parameters
 M307 H0 A76.2 C298.5 D0.5 S1.00 V27.0 B0
-M307 H1 A725.3 C132.6 D4.6 S1.00 V26.9 B0
+M307 H1 A716.5 C130.9 D4.6 S1.00 V26.9 B0
 ; Probed axis limits
 M208 S0 V815.57
 ; Workplace coordinates

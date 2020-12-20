@@ -12,3 +12,4 @@ M915 W S5 H200 F0 R1		 ; set stall parameters back to operating
 M400              		 	 ; make sure everything has stopped before we reset the motor currents
 M913 W50             		 ; motor currents back to idle
 G90                  		 ; back to absolute positioning
+G92 V0

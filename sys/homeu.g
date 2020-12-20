@@ -12,4 +12,17 @@ if !sensors.endstops[4].triggered   ; only move selector if there is no filament
     M913 U30       		     	    ; motor currents back to standstill
 else
     echo "Filament present, not moving selector!"
+    M84 U
+    if state.currentTool == 0
+        G92 U1
+    elif state.currentTool == 1
+        G92 U14
+    elif state.currentTool == 2
+        G92 U32
+    elif state.currentTool == 3
+        G92 U45
+    elif state.currentTool == 4
+        G92 U57
 M574 V2 S1 P"nil"					; disabling V endstop
+M84 V
+G92 V0

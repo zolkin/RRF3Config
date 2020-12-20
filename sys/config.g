@@ -29,7 +29,7 @@ M569 P5 S0                                          		; Drive 5 goes forwards   
 M569 P6 S1                                          		; Drive 6 goes forwards   U = Selector Axis
 M584 X0 Y1 Z2 E3 V4 W5 U6                           		; Apply custom drive mapping
 M350 X16 Y16 Z16 E16 U16 V16 W16 I1                     			; Configure microstepping with interpolation
-M92 X160.00 Y160.00 Z160.00 E400.5 U415.0 V145.0 W26.0             	; Set steps per mm
+M92 X160.00 Y160.00 Z160.00 E400.5 U400.0 V145.0 W26.0             	; Set steps per mm
 M566 X1000 Y1000 Z1000 E1000 U400 V1000 W2000    	        		; Set maximum instantaneous speed changes (mm/min)
 M203 X12000.0 Y12000.0 Z12000.0 E10000.0 U5000.0 V10000.0 W20000.0	; Set maximum speeds (mm/min)
 M201 X3000.00 Y3000.00 Z3000.00 E3000.00 U500.0 V3000.0 W2000.0   	; Set accelerations (mm/s^2)
@@ -66,7 +66,9 @@ M143 H0 S120                               					; Set temperature limit for heat
 M140 H0
 
 ; Extruder Heater
-M308 S1 P"e0temp" Y"thermistor" T4606017 B5848 C5.548428e-8 R4700	;some chinese Temperature Sensor
+;M308 S1 P"e0temp" Y"thermistor" T4606017 B5848 C5.548428e-8 R4700	;some chinese Temperature Sensor
+;M950 H1 C"e0heat" T1                                					; create nozzle heater output on e0heat and map it to sensor 1
+M308 S1 P"spi.cs1" Y"rtd-max31865" 										; create sensor number 1 as a PT100 sensor in the first position on the Duet 2 daughter board connector
 M950 H1 C"e0heat" T1                                					; create nozzle heater output on e0heat and map it to sensor 1
 ;M305 P1 T4606017 B5848 C5.548428e-8 R4700 H0 L0
 M307 H1 A580.4 C256.6 D6.4 S0.50		  								; Heating process parameters for 24V a system
@@ -74,7 +76,7 @@ M143 H1 S295                                							; Set temperature limit for h
 
 ; Fans
 M950 F0 C"fan0" Q500                                		; create fan 0 on pin fan0 and set its frequency
-M106 P0 S0 I0 F60 H-1                    					; Set fan 0 value, PWM signal inversion and frequency. Thermostatic control is turned off
+M106 P0 S0 I0 H-1                    						; Set fan 0 value, PWM signal inversion and frequency. Thermostatic control is turned off
 M950 F1 C"fan1" Q500                                		; create fan 1 on pin fan1 and set its frequency
 M106 P1 S1 I0 F500 H1 T45                   				; Set fan 1 value, PWM signal inversion and frequency. Thermostatic control is turned on
 

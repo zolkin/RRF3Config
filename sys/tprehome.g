@@ -8,9 +8,6 @@ if !move.axes[5].homed
 if !move.axes[3].homed
     M98 P"preabort.g"
     M291 S3 R"Toolchange error" P"U not homed"
-if !move.axes[4].homed
-    M98 P"preabort.g"
-    M291 S3 R"Toolchange error" P"V not homed"
 if !move.axes[5].homed
     M98 P"preabort.g"
     M291 S3 R"Toolchange error" P"W not homed"

@@ -3,7 +3,7 @@ M98 P"tprehome.g"
 
 echo "Selecting tool 2"
 M574 V2 S1 P"e1stop"	; set V axis max endstop to switched low 
-if sensors.endstops[4].triggered
+if !sensors.endstops[4].triggered
     G90							; absolute moves
     G1 U27 F2000           		; move selector to T2 position
     G1 W32 F10000	      		; move idler to T2 position

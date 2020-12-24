@@ -10,7 +10,7 @@ if sensors.endstops[4].triggered	; unloading from extruder failed
     M291 S3 R"Unloading from extruder failed" P"Filament stil present in the extruder"
 else
     G90				 		; absolute moves
-    G1 W45 F10000			; select T3 with idler
+    G1 W44 F10000			; select T3 with idler
     M591 D0 P2 C"nil" S0  	; deactivate filament sensor
     M98 P"tfreemaster.g"
 

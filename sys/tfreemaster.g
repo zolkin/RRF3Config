@@ -12,7 +12,7 @@ if !sensors.endstops[4].triggered
 
 if !sensors.endstops[4].triggered
     M98 P"preabort.g"
-    M291 S3 R "Unloading failure detected" P"Filament still present in the selector!"
+    M291 S3 R"Unloading failure detected" P"Filament still present in the selector!"
 else
     G90				 			; absolute moves
     G1 W78 F10000				; move W to safe position

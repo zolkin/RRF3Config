@@ -75,7 +75,7 @@ M307 H1 A580.4 C256.6 D6.4 S0.50		  								; Heating process parameters for 24V
 M143 H1 S295                                							; Set temperature limit for heater 1 to 295C (because of silicone sock)
 
 ; Fans
-M950 F0 C"fan0" Q500                                		; create fan 0 on pin fan0 and set its frequency
+M950 F0 C"duex.fan3" Q500                                		; create fan 0 on pin fan3 and set its frequency
 M106 P0 S0 I0 H-1                    						; Set fan 0 value, PWM signal inversion and frequency. Thermostatic control is turned off
 M950 F1 C"fan1" Q500                                		; create fan 1 on pin fan1 and set its frequency
 M106 P1 S1 I0 F500 H1 T45                   				; Set fan 1 value, PWM signal inversion and frequency. Thermostatic control is turned on
